@@ -38,9 +38,12 @@ function jf_capture_linkblog_request() {
 	if ( ! isset( $url_data['host'] ) || ! in_array( $url_data['host'], $valid_referral_hosts ) )
 		return;
 
+	$post_content = wp_kses_post( $_GET['description'] );
+	$post_content .= '<br><br>Via: <a href="' . esc_url_raw( $_GET['link'] ) . '" title="' . sanitize_text_field( $_GET['title'] ) . '">' . esc_url_raw( $_GET['link'] . '</a>';
+
 	$new_post_id = wp_insert_post( array(
 	                                    'post_type' => 'post',
-	                                    'post_content' => wp_kses_post( $_GET['description'] ),
+	                                    'post_content' => $post_content,
 	                                    'post_title' => sanitize_text_field( $_GET['title'] ),
 	                                    'post_status' => 'draft',
 	                               ));
