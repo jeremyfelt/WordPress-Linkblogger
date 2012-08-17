@@ -28,7 +28,7 @@ License: GPL2
 add_action( 'init', 'jf_capture_linkblog_request' );
 function jf_capture_linkblog_request() {
 
-	if ( isset( $_SERVER['HTTP_REFERRER'] ) && '' != $_SERVER['HTTP_REFERRER'] && isset( $_GET['link'] ) && isset( $_GET['title'] ) && isset( $_GET['description'] ) )
+	if ( isset( $_SERVER['HTTP_REFERER'] ) && '' != $_SERVER['HTTP_REFERER'] && isset( $_GET['link'] ) && isset( $_GET['title'] ) && isset( $_GET['description'] ) )
 		$url_data = parse_url( $_SERVER['HTTP_REFERER'] );
 	else
 		return;
