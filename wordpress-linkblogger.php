@@ -51,4 +51,5 @@ function jf_capture_linkblog_request() {
 	wp_set_post_terms( $new_post_id, 'Linkblog', 'category' );
 	update_post_meta( $new_post_id, 'linkblog_url', esc_url_raw( $_GET['link'] ) );
 
+	wp_redirect( $_SERVER['HTTP_REFERER'] );
 }
