@@ -46,12 +46,12 @@ function jf_capture_linkblog_request() {
 	                                    'post_content' => $post_content,
 	                                    'post_title' => sanitize_text_field( $_GET['title'] ),
 	                                    'post_status' => 'publish',
+	                                    'category' => array( 160 ),
 	                               ));
 
 	if ( is_wp_error( $new_post_id ) || 0 == absint( $new_post_id ) )
 		return;
 
-	wp_set_post_terms( $new_post_id, 'Linkblog', 'category' );
 	update_post_meta( $new_post_id, 'linkblog_url', esc_url_raw( $_GET['link'] ) );
 
 	wp_redirect( $_SERVER['HTTP_REFERER'] );
