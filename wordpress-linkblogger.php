@@ -41,7 +41,7 @@ function jf_capture_linkblog_request() {
 	$new_post_id = wp_insert_post( array(
 	                                    'post_type' => 'post',
 	                                    'post_content' => wp_kses_post( $_GET['description'] ),
-	                                    'post_title' => sanitize_title( $_GET['title'] ),
+	                                    'post_title' => sanitize_text_field( $_GET['title'] ),
 	                                    'post_status' => 'draft',
 	                               ));
 
