@@ -38,7 +38,7 @@ function jf_capture_linkblog_request() {
 	if ( ! isset( $url_data['host'] ) || ! in_array( $url_data['host'], $valid_referral_hosts ) )
 		return;
 
-	if ( ! wp_validate_auth_cookie() )
+	if ( ! is_user_logged_in() )
 		return;
 
 	$post_content = wp_kses_post( $_GET['description'] );
