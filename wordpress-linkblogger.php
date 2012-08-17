@@ -45,7 +45,7 @@ function jf_capture_linkblog_request() {
 	                                    'post_type' => 'post',
 	                                    'post_content' => $post_content,
 	                                    'post_title' => sanitize_text_field( $_GET['title'] ),
-	                                    'post_status' => 'draft',
+	                                    'post_status' => 'publish',
 	                               ));
 
 	if ( is_wp_error( $new_post_id ) || 0 == absint( $new_post_id ) )
