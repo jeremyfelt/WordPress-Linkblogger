@@ -39,7 +39,8 @@ function jf_capture_linkblog_request() {
 		return;
 
 	$post_content = wp_kses_post( $_GET['description'] );
-	$post_content .= '<br><br>Via: <a href="' . esc_url_raw( $_GET['link'] ) . '" title="' . sanitize_text_field( $_GET['title'] ) . '">' . esc_url_raw( $_GET['link'] ) . '</a>';
+	$post_content .= '<br><br>Article: <a href="' . esc_url_raw( $_GET['link'] ) . '" title="' . sanitize_text_field( $_GET['title'] ) . '">' . esc_url_raw( $_GET['link'] ) . '</a>';
+	$post_content .= '<br>Link Via: <a href="' . esc_url_raw( $_SERVER['HTTP_REFERER'] ) . '">' . esc_url_raw( $_SERVER['HTTP_REFERER'] ) . '</a>';
 
 	$new_post_id = wp_insert_post( array(
 	                                    'post_type' => 'post',
